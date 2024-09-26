@@ -1,4 +1,8 @@
-# for gui_categorization code, the transaction_data.csv must be uploaded. for gui_financial insights, the mockfinancialdata.csv must be uploaded in the GUI interface.
+# Ek Pehchaan FinFlux
+
+Note: some of the code in the GUI is simplified for demo purposes, refer to other code files to see exact implementation.
+
+for gui_categorization code, the transaction_data.csv must be uploaded. for gui_financial insights, the mockfinancialdata.csv must be uploaded in the GUI interface.
 
 
 Overview:
