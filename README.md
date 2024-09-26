@@ -45,4 +45,4 @@ AI-powered Features,
 Automatic Categorization,
 Child Accounts
 
-https://docs.google.com/document/d/16nUV9bMFOvZYmlx7dG-a6XN0fAzXQMZL3VTz0Jbe_Yk/edit?usp=sharing 
+PLEASE SEE: https://docs.google.com/document/d/16nUV9bMFOvZYmlx7dG-a6XN0fAzXQMZL3VTz0Jbe_Yk/edit?usp=sharing 
