@@ -1,4 +1,4 @@
-Overview
+Overview:
 FinFlux is a fintech web app designed to tackle financial anxiety in modern Indian households. Mismanagement of finances is a leading source of stress, impacting mental and physical health. FinFlux aims to alleviate this burden by providing families with powerful tools to manage their expenses, investments, and financial goals while fostering financial literacy in children.
 
 Problem:
