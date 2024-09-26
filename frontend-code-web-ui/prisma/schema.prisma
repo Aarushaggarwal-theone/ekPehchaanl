@@ -1,0 +1,119 @@
+// /**
+//  * @description This is the Prisma schema file that defines the data models for the application.
+//  *              It is used to generate the Prisma client for interacting with the database.
+//  *              Learn more about Prisma schema in the documentation: https://pris.ly/d/prisma-schema
+//  */
+
+// /**
+//  * @model UserSettings
+//  * @description Represents the user settings in the application.
+//  * @property {String} userId - The unique identifier of the user.
+//  * @property {String} currency - The currency preference of the user.
+//  */
+
+// /**
+//  * @model Category
+//  * @description Represents a category in the application.
+//  * @property {DateTime} createdAt - The date and time when the category was created.
+//  * @property {String} name - The name of the category.
+//  * @property {String} userId - The unique identifier of the user who owns the category.
+//  * @property {String} icon - The icon associated with the category.
+//  * @property {String} type - The type of the category (income or expense).
+//  */
+
+// /**
+//  * @model Transaction
+//  * @description Represents a transaction in the application.
+//  * @property {String} id - The unique identifier of the transaction.
+//  * @property {DateTime} createdAt - The date and time when the transaction was created.
+//  * @property {DateTime} updateAt - The date and time when the transaction was last updated.
+//  * @property {Float} amount - The amount of the transaction.
+//  * @property {String} description - The description of the transaction.
+//  * @property {DateTime} date - The date of the transaction.
+//  * @property {String} userId - The unique identifier of the user who made the transaction.
+//  * @property {String} type - The type of the transaction (income or expense).
+//  * @property {String} category - The category of the transaction.
+//  * @property {String} categoryIcon - The icon associated with the category of the transaction.
+//  */
+
+// /**
+//  * @model MonthHistory
+//  * @description Represents the monthly history of income and expense for a user.
+//  * @property {String} userId - The unique identifier of the user.
+//  * @property {Int} day - The day of the month.
+//  * @property {Int} month - The month.
+//  * @property {Int} year - The year.
+//  * @property {Float} income - The total income for the month.
+//  * @property {Float} expense - The total expense for the month.
+//  */
+
+// /**
+//  * @model YearHistory
+//  * @description Represents the yearly history of income and expense for a user.
+//  * @property {String} userId - The unique identifier of the user.
+//  * @property {Int} month - The month.
+//  * @property {Int} year - The year.
+//  * @property {Float} income - The total income for the year.
+//  * @property {Float} expense - The total expense for the year.
+//  */
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model UserSettings {
+  userId   String @id
+  currency String
+}
+
+model Category {
+  createdAt DateTime @default(now())
+  name      String
+  userId    String
+  icon      String
+  type      String   @default("income")
+
+  @@unique([name, userId, type])
+}
+
+model Transaction {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updateAt  DateTime @default(now())
+
+  amount      Float
+  description String
+  date        DateTime
+  userId      String
+  type        String   @default("income")
+
+  category     String
+  categoryIcon String
+}
+
+model MonthHistory {
+  userId  String
+  day     Int
+  month   Int
+  year    Int
+  income  Float
+  expense Float
+
+  @@id([day, month, year, userId])
+}
+
+model YearHistory {
+  userId  String
+  month   Int
+  year    Int
+  income  Float
+  expense Float
+
+  @@id([month, year, userId])
+}
